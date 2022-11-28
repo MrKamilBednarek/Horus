@@ -7,14 +7,18 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class Wall implements Structure {
+public class Wall extends FullBlock implements Structure {
 
-    private List<Block> blocks=new ArrayList<>();
+    private List<Block> blocks;
 
+    public Wall() {
+        this.blocks = new ArrayList<>();
+    }
 
 
     @Override
     public Optional<Block> findBlockByColor(String color) {
+
         Optional<Block> blockOptional= blocks.stream()
                 .filter(f->f.getColor().equals(color))
                 .findAny();
@@ -44,5 +48,10 @@ public class Wall implements Structure {
         fullBlock.setColor(color);
         fullBlock.setMaterial(material);
         blocks.add(fullBlock);
+    }
+
+    @Override
+    public List<Block> getBlocks() {
+        return this.blocks;
     }
 }
