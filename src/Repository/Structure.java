@@ -1,9 +1,12 @@
+package Repository;
+
+import model.Block;
+
 import java.util.List;
 import java.util.Optional;
 
 public interface Structure {
-    //String color = new String();
-    //String material = new String();
+
 
     // zwraca dowolny element o podanym kolorze
     Optional<Block> findBlockByColor(String color);
