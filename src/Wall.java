@@ -1,4 +1,4 @@
-import Repository.Structure;
+import repository.Structure;
 import model.Block;
 import model.FullBlock;
 
@@ -12,10 +12,17 @@ public class Wall extends FullBlock implements Structure {
     private List<Block> blocks;
 
     public Wall() {
+        super();
         this.blocks = new ArrayList<>();
     }
 
-
+    public Wall(int numberOfBlocks, String color, String material){
+        this.blocks = new ArrayList<>(numberOfBlocks);
+        for(int i=0;i<numberOfBlocks;i++){
+            FullBlock fullBlock=new FullBlock(color,material);
+            blocks.add(fullBlock);
+        }
+    }
     @Override
     public Optional<Block> findBlockByColor(String color) {
 
@@ -44,9 +51,7 @@ public class Wall extends FullBlock implements Structure {
         return 0;
     }
     public void addBlock(String color,String material){
-        FullBlock fullBlock=new FullBlock();
-        fullBlock.setColor(color);
-        fullBlock.setMaterial(material);
+        FullBlock fullBlock=new FullBlock(color,material);
         blocks.add(fullBlock);
     }
 

@@ -6,6 +6,14 @@ public class FullBlock implements CompositeBlock{
     private String color;
     private String material;
 
+    public FullBlock (String color, String material){
+        this.setColor(color);
+        this.setMaterial(material);
+    }
+    public FullBlock(){
+
+    }
+
     @Override
     public String getColor() {
         return this.color;
